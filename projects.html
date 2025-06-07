@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properties - Dholera Realty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="projects.css" />
+  </head>
+  <body>
+    <!-- Existing Header/NAV is already above this -->
+    <header class="header">
+      <a href="/index.html">
+        <img src="Dholera_images/MS_Infra_logo.png" alt="" class="logo" />
+      </a>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li>
+            <a href="/whyDholera.html" class="main-nav-link">Why Dholera?</a>
+          </li>
+          <li>
+            <a href="/whyus.html" class="main-nav-link">Why Us?</a>
+          </li>
+          <li>
+            <a href="/projects.html" class="main-nav-link">Our Projects</a>
+          </li>
+          <li>
+            <button
+              class="button"
+              id="Dholera_visit_button"
+              onclick="openModal()"
+            >
+              <a href="#" id="Dholera_visit_link" class="main-nav-link"
+                >Book Dholera visit now!</a
+              >
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="properties-section">
+      <div class="container">
+        <h2 class="section-title">Our Properties</h2>
+        <div class="properties-grid">
+          <!-- Property Card 1 -->
+          <div class="property-card">
+            <div class="property-images">
+              <img
+                src="Dholera_images/skyrise_property.png"
+                alt="Property 1"
+                class="active"
+              />
+              <img
+                src="property1-photo2.jpg"
+                alt="Property 1 second"
+                class="hidden"
+              />
+            </div>
+            <div class="property-info">
+              <h3>Luxury Plot in Dholera SIR</h3>
+              <p>
+                Beautiful residential plot located in the prime area of Dholera
+                Smart City. Excellent investment opportunity with high future
+                returns. Close to proposed airport and metro stations.
+              </p>
+              <button class="view-more-btn">View Details</button>
+            </div>
+          </div>
+
+          <!-- Property Card 2 -->
+          <div class="property-card">
+            <div class="property-images">
+              <img
+                src="Dholera_images/DholeraBhoomi_property.png"
+                alt="Property 2"
+                class="active"
+              />
+              <img
+                src="property2-photo2.jpg"
+                alt="Property 2 second"
+                class="hidden"
+              />
+            </div>
+            <div class="property-info">
+              <h3>Premium Commercial Plot</h3>
+              <p>
+                Spacious commercial plot perfect for future business ventures.
+                Strategic location at the heart of the developing Dholera
+                Industrial Zone. Government-approved with top-class amenities
+                nearby.
+              </p>
+              <button class="view-more-btn">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="modal-overlay" id="modal">
+        <div class="modal">
+          <button class="close-button" onclick="closeModal()">&times;</button>
+          <div class="modal-header">
+            <img
+              src="Dholera_images/Dholera_entrance (1).jpg"
+              alt="Header Image"
+            />
+          </div>
+          <div class="modal-body">
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/xwpoplgz"
+              method="POST"
+            >
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required />
+              </div>
+              <div class="form-group">
+                <label for="number">Number</label>
+                <input
+                  type="tel"
+                  id="number"
+                  name="number"
+                  pattern="[6-9]{1}[0-9]{9}"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="comments">Comments</label>
+                <textarea id="comments" name="comments"></textarea>
+              </div>
+              <button type="submit" class="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function closeModal() {
+        if (typeof modal !== "undefined" && modal) {
+          modal.style.display = "none";
+        } else {
+          console.error("Modal element not found.");
+        }
+      }
+
+      function openModal() {
+        console.log("open modal");
+        if (typeof modal !== "undefined" && modal) {
+          modal.style.display = "flex";
+        } else {
+          console.error("Modal element not found.");
+        }
+      }
+
+      function form_submit() {
+        const contactForm = document.getElementById("contactForm");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault(); // stop normal form submission
+
+            const form = e.target;
+            const data = new FormData(form);
+
+            try {
+              const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                  Accept: "application/json",
+                },
+              });
+
+              if (response.ok) {
+                alert("Thank you! Your form has been submitted.");
+                form.reset(); // optional: clear the form
+                closeModal(); // optional: close the modal
+              } else {
+                alert("Oops! Something went wrong.");
+              }
+            } catch (error) {
+              console.error("Error submitting form:", error);
+              alert("Error submitting form.");
+            }
+          });
+        } else {
+          console.error("Contact form not found.");
+        }
+      }
+    </script>
+  </body>
+</html>
