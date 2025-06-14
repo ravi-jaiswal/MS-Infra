@@ -1,10 +1,98 @@
-@media (max-width: 768px) {
-    .hero-content {
-      flex-direction: column;
-      text-align: center;
+
+/* Mobile Navigation */
+.btn-mobile-nav{
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+
+}
+
+.icon-mobile-nav{
+    height: 4.8rem;
+    width: 4.8rem;
+    color: #333;
+
+}
+.icon-mobile-nav[name="close-outline"]
+{
+    display: none;
+    z-index: 10001;
+}
+
+/* BELOW 934px(Tablets) */
+
+@media(max-width: 59em){
+    html{
+        /* 8/16px */
+        font-size: 50%;
+
+
     }
-  
-    .hero-right img {
-      max-width: 100%;
+    .hero{
+        grid-template-columns: 1fr;
     }
-  }
+
+    .grid{
+        column-gap: 4.8rem;
+        row-gap: 6.4rem;
+    }
+
+    /*Mobile Navigation */
+    .btn-mobile-nav{
+        display: block !important;
+    }
+
+    .main-nav{
+        background-color: whitesmoke;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        transform: translateX(100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s;
+
+        /*1. Hide it visually*/
+        opacity: 0;
+
+         /*2. Make it unaccessible for mouse and keyboard*/
+         pointer-events: none;
+
+          /*1. Hide it from screen readers*/
+          visibility: hidden;
+          z-index: 10;
+
+
+    }
+
+    .nav-open .main-nav{
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .nav-open .icon-mobile-nav[name="close-outline"]{
+        display: block !important;
+        /* z-index: 30000000000000000000; */
+    }
+
+    .nav-open .icon-mobile-nav[name="menu-outline"]{
+        display: none;
+    }
+
+
+    .main-nav-list{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-nav-link:link,.main-nav-link:visited{
+      font-size: 3rem;
+    }
+
+    
+}

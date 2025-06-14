@@ -18,6 +18,7 @@ body{
     font-weight: 400;
     color: #f1f3f5;
     height: 100%;
+    overflow-x: hidden;
 
     /*This only works if there is nothing absolutely positioned relative to body*/
     /* overflow-x: hidden; */

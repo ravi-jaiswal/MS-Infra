@@ -59,3 +59,12 @@ function form_submit() {
     console.error("Contact form not found.");
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const headerEl = document.querySelector(".header");
+  const btnMobileNav = document.querySelector(".btn-mobile-nav");
+
+  btnMobileNav.addEventListener("click", function () {
+    headerEl.classList.toggle("nav-open");
+  });
+});
