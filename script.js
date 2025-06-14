@@ -112,6 +112,7 @@ function closeModal() {
 function openModal() {
   console.log("open modal");
   if (typeof modal !== "undefined" && modal) {
+    console.log("Modal ", modal);
     modal.style.display = "flex";
   } else {
     console.error("Modal element not found.");

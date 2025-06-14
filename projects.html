@@ -11,37 +11,61 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="projects.css" />
+    <link rel="stylesheet" href="general.css" />
   </head>
   <body>
     <!-- Existing Header/NAV is already above this -->
     <header class="header">
-      <a href="/index.html">
-        <img src="Dholera_images/MS_Infra_logo.png" alt="" class="logo" />
-      </a>
-      <nav class="main-nav">
-        <ul class="main-nav-list">
-          <li>
-            <a href="/whyDholera.html" class="main-nav-link">Why Dholera?</a>
-          </li>
-          <li>
-            <a href="/whyus.html" class="main-nav-link">Why Us?</a>
-          </li>
-          <li>
-            <a href="/projects.html" class="main-nav-link">Our Projects</a>
-          </li>
-          <li>
-            <button
-              class="button"
-              id="Dholera_visit_button"
-              onclick="openModal()"
-            >
-              <a href="#" id="Dholera_visit_link" class="main-nav-link"
-                >Book Dholera visit now!</a
-              >
-            </button>
-          </li>
-        </ul>
-      </nav>
+      <div class="top-header">
+        <div class="left-top-header">
+          <div class="header-email">
+            <ion-icon name="mail-outline"></ion-icon
+            ><span class="email-icon-text">admin@msinfra.com</span>
+          </div>
+          <div class="header-phone">
+            <ion-icon name="call-outline"></ion-icon
+            ><span class="contacts-icon-text">+91 7984264040</span>
+          </div>
+        </div>
+        <div class="right-top-header">
+          <button
+            class="btn-dholera-visit btn button"
+            id="Dholera_visit_button"
+            onclick="openModal()"
+          >
+            Free Site Visit
+          </button>
+        </div>
+      </div>
+      <div class="bottom-header">
+        <div class="logo">
+          <img
+            class="logo-img"
+            src="Dholera_images/MS_Infra_logo_latest1.png"
+            alt=""
+          />
+        </div>
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li><a class="main-nav-link" href="index.html">Home</a></li>
+            <li>
+              <a class="main-nav-link" href="whyDholera.html">Dholera SIR</a>
+            </li>
+            <li><a class="main-nav-link" href="projects.html">Projects</a></li>
+            <li><a class="main-nav-link" href="whyus.html">About Us</a></li>
+            <li><a class="main-nav-link" href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="btn-call-now">
+          <button
+            class="btn button"
+            id="Dholera_visit_button"
+            onclick="openModal()"
+          >
+            Call now
+          </button>
+        </div>
+      </div>
     </header>
 
     <section class="properties-section">
@@ -149,60 +173,15 @@
         </div>
       </div>
     </section>
+    <script src="script2.js"></script>
 
-    <script>
-      function closeModal() {
-        if (typeof modal !== "undefined" && modal) {
-          modal.style.display = "none";
-        } else {
-          console.error("Modal element not found.");
-        }
-      }
-
-      function openModal() {
-        console.log("open modal");
-        if (typeof modal !== "undefined" && modal) {
-          modal.style.display = "flex";
-        } else {
-          console.error("Modal element not found.");
-        }
-      }
-
-      function form_submit() {
-        const contactForm = document.getElementById("contactForm");
-
-        if (contactForm) {
-          contactForm.addEventListener("submit", async function (e) {
-            e.preventDefault(); // stop normal form submission
-
-            const form = e.target;
-            const data = new FormData(form);
-
-            try {
-              const response = await fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                  Accept: "application/json",
-                },
-              });
-
-              if (response.ok) {
-                alert("Thank you! Your form has been submitted.");
-                form.reset(); // optional: clear the form
-                closeModal(); // optional: close the modal
-              } else {
-                alert("Oops! Something went wrong.");
-              }
-            } catch (error) {
-              console.error("Error submitting form:", error);
-              alert("Error submitting form.");
-            }
-          });
-        } else {
-          console.error("Contact form not found.");
-        }
-      }
-    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

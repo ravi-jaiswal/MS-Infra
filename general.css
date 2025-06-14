@@ -1,0 +1,79 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    height: 100%;
+}
+
+
+body{
+    font-family: 'Rubik',sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    color: #f1f3f5;
+    height: 100%;
+
+    /*This only works if there is nothing absolutely positioned relative to body*/
+    /* overflow-x: hidden; */
+
+}
+
+
+.container{
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+}
+
+.grid{
+    display: grid;
+    row-gap: 9.6rem;
+    column-gap: 7.6rem;
+}
+
+.grid--2-cols{
+    grid-template-columns: repeat(2,1fr);
+}
+
+.grid--3-cols{
+    grid-template-columns: repeat(3,1fr);
+}
+
+.grid--4-cols{
+    grid-template-columns: repeat(4,1fr);
+}
+
+.grid--center-v{
+    align-items: center;
+}
+
+.btn{
+    background-color: #027FFE; /* vibrant green */
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 999px; /* pill shape */
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 10px rgba(40, 209, 100, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #22b557;
+    box-shadow: 0 6px 14px rgba(40, 209, 100, 0.4);
+    transform: translateY(-1px);
+  }

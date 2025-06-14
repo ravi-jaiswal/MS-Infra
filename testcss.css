@@ -1,0 +1,34 @@
+.parent{
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.item{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item1{
+    background-color: aqua;
+}
+
+.item2{
+    background-color: orange
+}
+
+.item3{
+    background-color: yellowgreen;
+}
+
+.item4{
+    background-color: yellow;
+    margin-bottom: 200px;
+}
+
+.item5{
+    background-color: pink;
+}
