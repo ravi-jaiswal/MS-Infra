@@ -61,6 +61,7 @@ function form_submit() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM loaded 2");
   const headerEl = document.querySelector(".header");
   const btnMobileNav = document.querySelector(".btn-mobile-nav");
 
